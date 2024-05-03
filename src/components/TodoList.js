@@ -51,7 +51,7 @@ function App() {
             >Add Todo</Button>
             <ul >
                 {todos.map((todo, index) => (
-                    <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
 
                         <span
                             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}

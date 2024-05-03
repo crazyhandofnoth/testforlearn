@@ -3,51 +3,57 @@ import { Link } from 'react-router-dom';
 
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-const { Header, Content, Sider } = Layout;
-const items1 = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-  const key = String(index + 1);
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: <Link to={`/option${subKey}`}>{`option${subKey}`}</Link> 
  
-      };
-    }),
-  };
-});
+const { Header, Content, Sider } = Layout;
+ 
+const items2 = [
+  {
+    key: 'sub1',
+    icon: <UserOutlined />,
+    label: 'utils',
+    children: [
+      {
+        key: '1',
+        label: <Link to="/todo">todo</Link>,
+        icon: <UserOutlined />,
+      },
+      {
+        key: '2',
+        label: <Link to="/option2">option2</Link>,
+        icon: <LaptopOutlined />,
+      }
+    ],
+  },
+
+];
+
+
+
+
+// [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
+//   const key = String(index + 1);
+//   const labels=['utils','settings']
+//   return {
+//     key: `sub${key}`,
+//     icon: React.createElement(icon),
+//     label: labels[index],
+//     children: new Array(4).fill(null).map((_, j) => {
+//       const subKey = index * labels.length + j + 1;
+//       return {
+//         key: subKey,
+//         label: <Link to={`/option${subKey}`}>{`option${subKey}`}</Link> 
+
+//       };
+//     }),
+//   };
+// });
 const BigLayout = ({ children }) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   return (
     <Layout>
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={items1}
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
-        />
-      </Header>
+  
       <Layout>
         <Sider
           width={200}

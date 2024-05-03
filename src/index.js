@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
 import TodoList from './components/TodoList';
-// import Page from './App';
+import Page from './App';
 import { Provider } from 'jotai'
 import BigLayout from './components/BigLayout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -15,10 +15,9 @@ root.render(
 
         <BigLayout>
           <Routes>
-            <Route path="/option1" element={<TodoList />} />
-
-
-            {/* Other routes can go here */}
+            <Route path="/todo" element={<TodoList />} />
+            <Route path="/option2" element={<Page />} />
+ 
           </Routes>
         </BigLayout>
 

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Input } from 'antd';
+import { atom, useAtom } from 'jotai';
+const todosAtom = atom([])
+const newTodoAtom = atom('')
 function App() {
-    const [todos, setTodos] = useState([]);
-    const [newTodo, setNewTodo] = useState('');
+    const [todos, setTodos] = useAtom(todosAtom);
+    const [newTodo, setNewTodo] = useAtom(newTodoAtom);
 
     const handleInputChange = (e) => {
         setNewTodo(e.target.value);
@@ -49,8 +52,6 @@ function App() {
             <ul >
                 {todos.map((todo, index) => (
                     <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-
-
 
                         <span
                             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}

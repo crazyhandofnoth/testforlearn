@@ -52,9 +52,9 @@ const BigLayout = ({ children }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   return (
-    <Layout>
+    
   
-      <Layout>
+      <Layout style={{ minHeight: '100vh' }}>
         <Sider
           width={200}
           style={{
@@ -99,7 +99,7 @@ const BigLayout = ({ children }) => {
           </Content>
         </Layout>
       </Layout>
-    </Layout>
+  
   );
 };
 export default BigLayout;

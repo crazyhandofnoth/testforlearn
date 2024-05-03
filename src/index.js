@@ -2,28 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
 import TodoList from './components/TodoList';
-import Page from './App';
+import Page from './Page';
 import { Provider } from 'jotai'
 import BigLayout from './components/BigLayout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Provider>
 
-        <BigLayout>
-          <Routes>
-            <Route path="/todo" element={<TodoList />} />
-            <Route path="/option2" element={<Page />} />
- 
-          </Routes>
-        </BigLayout>
+  <Router>
+    <Provider>
 
-      </Provider>
-    </Router>
-  </React.StrictMode>
+      <BigLayout>
+        <Routes>
+          <Route path="/todo" element={<TodoList />} />
+          <Route path="/themeswitcher" element={<Page />} />
+          <Route path="/" element={<></>} />
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </Routes>
+      </BigLayout>
+
+    </Provider>
+  </Router>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -20,8 +20,8 @@ const items = [
         icon: <UserOutlined />,
       },
       {
-        key: 'option2',
-        label: <Link to="/option2">option2</Link>,
+        key: 'themeswitcher',
+        label: <Link to="/themeswitcher">themeswitcher</Link>,
         icon: <LaptopOutlined />,
       }
     ],
@@ -43,7 +43,7 @@ const BigLayout = ({ children }) => {
   const handleMenuOpenChange = (keys) => {
     setOpenKeys(keys);
   };
-  console.log('OpenKeys',openKeys)
+  console.log('OpenKeys', openKeys)
   return (
 
 
@@ -71,20 +71,27 @@ const BigLayout = ({ children }) => {
           padding: '0 24px 24px',
         }}
       >
-        <Breadcrumb>
-          <Breadcrumb.Item>
-            <a href="/">Home</a>
-          </Breadcrumb.Item>
-          {pathnames.map((value, index) => {
-            const to = `/${pathnames.slice(0, index + 1).join('/')}`;
 
-            return (
-              <Breadcrumb.Item key={to}>
-                <a href={to}>{value}</a>
-              </Breadcrumb.Item>
-            );
-          })}
-        </Breadcrumb>
+        <Breadcrumb
+
+          items={[
+            {
+              title: <Link to="/">Home</Link>,
+            },
+            ...pathnames.map((value, index) => {
+              const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+
+              return (
+                {
+                  title: <Link href={to}>{value}</Link>
+                }
+
+              );
+
+            })
+          ]}
+
+        />
         <Content
           style={{
             padding: 24,

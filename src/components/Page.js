@@ -1,5 +1,5 @@
 import { atom, useAtom } from 'jotai';
-
+import { Button } from 'antd';
 const theme = atom('light');
 
 export default function Page() {
@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className={appTheme}>
       <h1>This is a theme switcher</h1>
-      <button onClick={handleClick}>{appTheme === 'light'? 'DARK': 'LIGHT'}</button>
+      <Button onClick={handleClick}>{appTheme === 'light'? 'DARK': 'LIGHT'}</Button>
     </div>
   )
 }

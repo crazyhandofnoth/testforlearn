@@ -40,7 +40,9 @@ function App() {
     return (
         <div>
             <h1>Todo List</h1>
-            <Input type="text" value={newTodo} onChange={handleInputChange} onKeyDown={(e) => {
+            <Input
+            style={{width: '320px',marginRight: '10px'}}
+            type="text" value={newTodo} onChange={handleInputChange} onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                     addTodo();
                 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
 import TodoList from './components/TodoList';
-import Page from './Page';
+import Page from './components/Page';
 import { Provider } from 'jotai'
 import BigLayout from './components/BigLayout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';

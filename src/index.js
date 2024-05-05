@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
 import TodoList from './components/TodoList';
 import Page from './components/Page';
+import Typo from './components/Typo';
 import { Provider } from 'jotai'
 import BigLayout from './components/BigLayout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EmptyPage from './components/EmptyPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,10 +19,10 @@ root.render(
         <Routes>
           <Route path="/todo" element={<TodoList />} />
           <Route path="/themeswitcher" element={<Page />} />
-          <Route path="/" element={<></>} />
+          <Route path="/" element={<EmptyPage/>} />
+          <Route path="/Typo" element={<Typo />} />
 
 
-      
 
 
 

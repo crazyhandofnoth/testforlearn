@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Input } from 'antd';
+import { Button, Input, List } from 'antd';
 import { atom, useAtom } from 'jotai';
 const todosAtom = atom([])
 const newTodoAtom = atom('')
-function App() {
+function TodoList() {
     const [todos, setTodos] = useAtom(todosAtom);
     const [newTodo, setNewTodo] = useAtom(newTodoAtom);
 
@@ -41,33 +41,58 @@ function App() {
         <div>
             <h1>Todo List</h1>
             <Input
-            style={{width: '320px',marginRight: '10px'}}
-            type="text" value={newTodo} onChange={handleInputChange} onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    addTodo();
-                }
-            }} />
+                style={{ height: 35, width: '320px', marginRight: '10px', marginBottom: '10px' }}
+                type="text" value={newTodo} onChange={handleInputChange} onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        addTodo();
+                    }
+                }} />
             <Button
                 onClick={addTodo}
 
             >Add Todo</Button>
-            <ul >
-                {todos.map((todo, index) => (
-                    <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
+
+
+
+
+
+
+
+
+
+
+
+            <List
+                // header={<div>Header</div>}
+                // footer={<div>Footer</div>}
+                bordered
+                dataSource={todos}
+                renderItem={(item, index) => (
+                    <List.Item key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
 
                         <span
-                            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+                            style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
                             onClick={() => toggleTodo(index)}
 
                         >
-                            {todo.text}
+                            {item.text}
                         </span>
                         <Button onClick={() => removeTodo(index)}>Remove</Button>
-                    </li>
-                ))}
-            </ul>
+                    </List.Item>
+                )
+                }
+                style={{ width: '320px' }}
+
+            />
+
+
+
+
+
+
+
         </div >
     );
 }
 
-export default App;
+export default TodoList;

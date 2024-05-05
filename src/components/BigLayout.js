@@ -23,6 +23,11 @@ const items = [
         key: 'themeswitcher',
         label: <Link to="/themeswitcher">themeswitcher</Link>,
         icon: <LaptopOutlined />,
+      },
+      {
+        key: 'typo',
+        label: <Link to="/typo">typo</Link>,
+        icon: <LaptopOutlined />,
       }
     ],
   },
@@ -49,7 +54,7 @@ const BigLayout = ({ children }) => {
 
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
-        width={200}
+        width={160}
         style={{
           background: colorBgContainer,
         }}
@@ -57,10 +62,7 @@ const BigLayout = ({ children }) => {
         <Menu
           mode="inline"
           defaultSelectedKeys={pathnames}
-          style={{
-            height: '100%',
-            borderRight: 0,
-          }}
+          inlineIndent={0}
           items={items}
           defaultOpenKeys={openKeys}
           onOpenChange={handleMenuOpenChange}
@@ -72,7 +74,8 @@ const BigLayout = ({ children }) => {
         }}
       >
 
-        <Breadcrumb
+        <Breadcrumb 
+        
 
           items={[
             {
@@ -94,7 +97,7 @@ const BigLayout = ({ children }) => {
         />
         <Content
           style={{
-            padding: 24,
+            padding: 35,
             margin: 0,
             minHeight: 280,
             background: colorBgContainer,

@@ -8,7 +8,7 @@ import { Provider } from 'jotai'
 import BigLayout from './components/BigLayout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EmptyPage from './components/EmptyPage';
-
+import ProcessQueue from './components/ProcessQueue';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
@@ -21,7 +21,7 @@ root.render(
           <Route path="/themeswitcher" element={<Page />} />
           <Route path="/" element={<EmptyPage/>} />
           <Route path="/Typo" element={<Typo />} />
-
+          <Route path="/processqueue" element={<ProcessQueue />} />
 
 
 
